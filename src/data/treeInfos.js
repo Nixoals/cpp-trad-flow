@@ -57,17 +57,20 @@ const treeInfos = [
 
 	{
 		id: 'create-blocks',
-		label: 'Create blocks',
+		label: 'Create blocks Recursive call',
 		connectedTo: ['expression_statement', 'compound_statement', 'field_expression', 'call_expression_for_return', 'call_expression', 'number_literal', 'char_literal', 'string_literal', 'binary_expression', 'unary_expression', 'if_statement', 'for_statement', 'declaration', 'assignment_expression', 'identifier', 'comment', 'initializer_list', 'subscript_expression', 'while_statement', 'cast_expression', 'return_statement', 'switch_statement', 'preproc_include', 'preproc_def', 'pin_declaration'],
 		position: 'down',
 		level: 12,
 		style: { background: lebelColors.createBlock },
 	},
-	{ id: 'inject-blocks', label: 'Append block to xml', connectedTo: 'create-blocks', position: 'down', level: 13, style: { background: lebelColors.injectBlock } },
+	{ id: 'append-block', label: 'Append block to xml', connectedTo: 'create-blocks', position: 'down', level: 13, style: { background: lebelColors.injectBlock } },
+    { id: 'reorganize-blocks', label: 'Reorganize prototype blocks', connectedTo: 'append-block', position: 'down', level: 14, style: { background: lebelColors.injectBlock } },
+    { id: 'inject-blocks', label: 'Inject blocks', connectedTo: 'append-block', position: 'down', level: 14, style: { background: lebelColors.injectBlock }},
 
 	{ id: 'standalone-blocks', label: 'Standalone blocks', connectedTo: 'translation-unit-children', position: 'down', level: 6, style: { background: lebelColors.serializeNode } },
 	{ id: 'includes-blocks', label: 'Include blocks', connectedTo: 'standalone-blocks', position: 'down', level: 7, style: { background: lebelColors.serializeNode } },
 	{ id: 'define-blocks', label: 'Define blocks', connectedTo: 'standalone-blocks', position: 'down', level: 7, style: { background: lebelColors.serializeNode } },
+    
 ];
 
 export default treeInfos;
