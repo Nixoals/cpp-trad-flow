@@ -9,7 +9,7 @@ const lebelColors = {
 };
 
 const treeInfos = [
-	{ id: 'get-text-code', label: 'Get text code', connectedTo: 'start', position: 'up', level: 1, style: { background: lebelColors.interface } },
+	{ id: 'get-text-code', label: 'GET TEXT CODE Editor onChange Event', connectedTo: 'start', position: 'up', level: 1, style: { background: lebelColors.interface } },
 	{ id: 'reset-constants', label: 'Reset Class constants', connectedTo: 'start', position: 'down', level: 1, style: { background: lebelColors.root } },
 	{ id: 'code-parsing', label: 'Code parsing', connectedTo: 'start', position: 'down', level: 1, style: { background: lebelColors.root } },
 	{ id: 'first-pass-functions', label: 'First pass functions', connectedTo: 'code-parsing', position: 'down', level: 2, style: { background: lebelColors.root } },
@@ -20,9 +20,9 @@ const treeInfos = [
 	{ id: 'translation-unit-children', label: 'Translation unit children', connectedTo: 'starting-loop-conversion', position: 'down', level: 5, style: { background: lebelColors.root } },
 
 	{ id: 'function-definition', label: 'Function def', connectedTo: 'translation-unit-children', position: 'down', level: 6, style: { background: lebelColors.serializeNode } },
-	{ id: 'void-loop', label: 'Void loop', connectedTo: 'function-definition', position: 'down', level: 7, style: { background: lebelColors.serializeNode } },
-	{ id: 'void-setup', label: 'Void setup', connectedTo: 'function-definition', position: 'down', level: 7, style: { background: lebelColors.serializeNode } },
-	{ id: 'function-custom', label: 'Function custom', connectedTo: 'function-definition', position: 'down', level: 7, style: { background: lebelColors.serializeNode } },
+	{ id: 'void-loop', label: 'Void loop', connectedTo: 'function-definition', position: 'down', level: 7, style: { background: lebelColors.finalNode } },
+	{ id: 'void-setup', label: 'Void setup', connectedTo: 'function-definition', position: 'down', level: 7, style: { background: lebelColors.finalNode } },
+	{ id: 'function-custom', label: 'Function custom', connectedTo: 'function-definition', position: 'down', level: 7, style: { background: lebelColors.finalNode } },
 	{ id: 'compound-statement', label: 'Compound statement', connectedTo: ['void-loop', 'void-setup', 'function-custom'], position: 'down', level: 8, style: { background: lebelColors.serializeNode } },
 	{ id: 'serialize-multi-nodes', label: 'Serialize multi nodes', connectedTo: ['compound-statement', 'create-blocks'], position: 'down', level: 9, style: { background: lebelColors.serializeNode } },
 
@@ -68,8 +68,8 @@ const treeInfos = [
     { id: 'inject-blocks', label: 'Inject blocks', connectedTo: 'append-block', position: 'down', level: 14, style: { background: lebelColors.injectBlock }},
 
 	{ id: 'standalone-blocks', label: 'Standalone blocks', connectedTo: 'translation-unit-children', position: 'down', level: 6, style: { background: lebelColors.serializeNode } },
-	{ id: 'includes-blocks', label: 'Include blocks', connectedTo: 'standalone-blocks', position: 'down', level: 7, style: { background: lebelColors.serializeNode } },
-	{ id: 'define-blocks', label: 'Define blocks', connectedTo: 'standalone-blocks', position: 'down', level: 7, style: { background: lebelColors.serializeNode } },
+	{ id: 'includes-blocks', label: 'Include blocks', connectedTo: 'standalone-blocks', position: 'down', level: 7, style: { background: lebelColors.finalNode } },
+	{ id: 'define-blocks', label: 'Define blocks', connectedTo: 'standalone-blocks', position: 'down', level: 7, style: { background: lebelColors.finalNode } },
     
 ];
 

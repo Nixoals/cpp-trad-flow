@@ -4,7 +4,7 @@ import 'reactflow/dist/style.css';
 import treeInfos from '../data/treeInfos';
 
 const startX = 200; // Position X du nœud start
-const startY = 250; // Position Y du nœud start
+const startY = 300; // Position Y du nœud start
 const spacing = 90; // Espacement entre les nœuds
 
 // server colors
@@ -96,8 +96,7 @@ const addNodesByLevelAndPosition = (organizedServers) => {
 			});
 
 			// Ajout des edges
-			if (typeof server.connectedTo === 'string'){
-
+			if (typeof server.connectedTo === 'string') {
 				initialEdges.push({
 					id: `e-${server.connectedTo}-${server.id}`,
 					source: server.connectedTo,
@@ -156,7 +155,6 @@ function Flow() {
 		setEdges(newEdges);
 	};
 
-
 	return (
 		<div
 			className="flow-container"
@@ -164,28 +162,43 @@ function Flow() {
 		>
 			<div
 				className="flow-title"
-				style={{ position: 'absolute', top: 10, left: 10, zIndex: 1000 }}
+				style={{ position: 'absolute', top: 10, left: 10 }}
 			>
-				{/* Stylez votre titre comme vous le souhaitez */}
-				<h1>CPP Traduction flow</h1>
-				<div style={{ display: 'flex', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
-					{/* <div style={{ display: 'flex', gap: '5px' }}>
+				<h1>CPP Traduction Workflow</h1>
+				<div
+					className="flow-legend"
+					style={{ zIndex: 300, background: 'rgba(255,255,255,0.9) ' }}
+				>
+					<div style={{ display: 'flex', gap: '5px' }}>
 						<span style={{ backgroundColor: 'lightblue', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
 						<div>start</div>
 					</div>
 					<div style={{ display: 'flex', gap: '5px' }}>
-						<span style={{ backgroundColor: '#22b573', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
-						<div>Prod</div>
+						<span style={{ backgroundColor: 'aliceblue', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
+						<div>Code manipulation</div>
 					</div>
 					<div style={{ display: 'flex', gap: '5px' }}>
-						<span style={{ backgroundColor: 'aliceblue', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
-						<div>Server</div>
+						<span style={{ backgroundColor: '#CD6155', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
+						<div>Entry point</div>
+					</div>
+					<div style={{ display: 'flex', gap: '5px' }}>
+						<span style={{ backgroundColor: '#22b573', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
+						<div>Node functions</div>
+					</div>
+					<div style={{ display: 'flex', gap: '5px' }}>
+						<span style={{ backgroundColor: '#D5F5E3', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
+						<div>Primary Nodes</div>
+					</div>
+					<div style={{ display: 'flex', gap: '5px' }}>
+						<span style={{ backgroundColor: '#AF7AC5', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
+						<div>Block Creation</div>
 					</div>
 					<div style={{ display: 'flex', gap: '5px' }}>
 						<span style={{ backgroundColor: 'orange', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
-						<div>Interface</div>
-					</div> */}
+						<div>Interface link</div>
+					</div>
 				</div>
+				<div className="flow-title-bg"></div>
 			</div>
 			<ReactFlow
 				nodes={nodes}
