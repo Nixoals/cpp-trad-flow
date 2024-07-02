@@ -58,7 +58,7 @@ const initialNodes = [];
 // main node
 initialNodes.push({
 	id: 'start',
-	data: { label: 'Code' },
+	data: { label: 'CPP Code' },
 	style: { background: 'lightblue', fontSize: 20, fontWeight: 'bold', color:"red" },
 	position: { x: startX, y: startY },
 });
