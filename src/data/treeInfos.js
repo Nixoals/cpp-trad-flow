@@ -3,20 +3,20 @@ const lebelColors = {
     entryPoint: '#CD6155',
 	serializeNode: '#22b573',
 	finalNode: '#D5F5E3',
-	interface: 'orange',
+	interface: '#5D6D7E',
 	createBlock: '#AF7AC5',
-	injectBlock: '#EC7063',
+	injectBlock: '#D35400',
 };
 
 const treeInfos = [
-	{ id: 'get-text-code', label: 'GET TEXT CODE Editor onChange Event', connectedTo: 'start', position: 'up', level: 1, style: { background: lebelColors.interface } },
+	{ id: 'get-text-code', label: 'GET TEXT CODE Editor onChange Event', connectedTo: 'start', position: 'up', level: 1, style: { background: lebelColors.interface, color:"white" } },
 	{ id: 'reset-constants', label: 'Reset Class constants', connectedTo: 'start', position: 'down', level: 1, style: { background: lebelColors.root } },
 	{ id: 'code-parsing', label: 'Code parsing', connectedTo: 'start', position: 'down', level: 1, style: { background: lebelColors.root } },
 	{ id: 'first-pass-functions', label: 'First pass functions', connectedTo: 'code-parsing', position: 'down', level: 2, style: { background: lebelColors.root } },
 	{ id: 'store-functions', label: 'Store functions', connectedTo: 'first-pass-functions', position: 'down', level: 3, style: { background: lebelColors.root } },
 	{ id: 'second-pass', label: 'Second pass', connectedTo: 'code-parsing', position: 'down', level: 2, style: { background: lebelColors.root } },
 	{ id: 'convert-ast', label: 'AST Conversion', connectedTo: 'second-pass', position: 'down', level: 3, style: { background: lebelColors.root } },
-	{ id: 'starting-loop-conversion', label: 'Starting loop conversion (serialize nodes)', connectedTo: 'convert-ast', position: 'down', level: 4, style: { background: lebelColors.entryPoint } },
+	{ id: 'starting-loop-conversion', label: 'Starting loop conversion (serialize nodes)', connectedTo: 'convert-ast', position: 'down', level: 4, style: { background: lebelColors.entryPoint, color:"white" } },
 	{ id: 'translation-unit-children', label: 'Translation unit children', connectedTo: 'starting-loop-conversion', position: 'down', level: 5, style: { background: lebelColors.root } },
 
 	{ id: 'function-definition', label: 'Function def', connectedTo: 'translation-unit-children', position: 'down', level: 6, style: { background: lebelColors.serializeNode } },
@@ -24,10 +24,10 @@ const treeInfos = [
 	{ id: 'void-setup', label: 'Void setup', connectedTo: 'function-definition', position: 'down', level: 7, style: { background: lebelColors.finalNode } },
 	{ id: 'function-custom', label: 'Function custom', connectedTo: 'function-definition', position: 'down', level: 7, style: { background: lebelColors.finalNode } },
 	{ id: 'compound-statement', label: 'Compound statement', connectedTo: ['void-loop', 'void-setup', 'function-custom'], position: 'down', level: 8, style: { background: lebelColors.serializeNode } },
-	{ id: 'serialize-multi-nodes', label: 'Serialize multi nodes', connectedTo: ['compound-statement', 'create-blocks'], position: 'down', level: 9, style: { background: lebelColors.serializeNode } },
+	{ id: 'serialize-multi-nodes', label: 'Serialize multi nodes', connectedTo: ['compound-statement', 'create-blocks'], position: 'down', level: 9, style: { background: lebelColors.root } },
 
 	{ id: 'create-statement', label: 'Create Blockly statement', connectedTo: 'serialize-multi-nodes', position: 'down', level: 10, style: { background: lebelColors.serializeNode } },
-	{ id: 'serialize-nodes', label: 'Serialize nodes', connectedTo: ['serialize-multi-nodes', 'create-statement', 'create-blocks'], position: 'down', level: 10, style: { background: lebelColors.serializeNode } },
+	{ id: 'serialize-nodes', label: 'Serialize nodes', connectedTo: ['serialize-multi-nodes', 'create-statement', 'create-blocks'], position: 'down', level: 10, style: { background: lebelColors.root } },
 
 	{ id: 'expression_statement', label: 'Expression statement', connectedTo: 'serialize-nodes', position: 'down', level: 11, style: { background: lebelColors.finalNode } },
 	{ id: 'compound_statement', label: 'Compound statement', connectedTo: 'serialize-nodes', position: 'down', level: 11, style: { background: lebelColors.finalNode } },
@@ -63,9 +63,9 @@ const treeInfos = [
 		level: 12,
 		style: { background: lebelColors.createBlock },
 	},
-	{ id: 'append-block', label: 'Append block to xml', connectedTo: 'create-blocks', position: 'down', level: 13, style: { background: lebelColors.injectBlock } },
-    { id: 'reorganize-blocks', label: 'Reorganize prototype blocks', connectedTo: 'append-block', position: 'down', level: 14, style: { background: lebelColors.injectBlock } },
-    { id: 'inject-blocks', label: 'Inject blocks', connectedTo: 'append-block', position: 'down', level: 14, style: { background: lebelColors.injectBlock }},
+	{ id: 'append-block', label: 'Append block to xml', connectedTo: 'create-blocks', position: 'down', level: 13, style: { background: lebelColors.injectBlock, color:"white" } },
+    { id: 'reorganize-blocks', label: 'Reorganize prototype blocks', connectedTo: 'append-block', position: 'down', level: 14, style: { background: lebelColors.injectBlock, color:"white" } },
+    { id: 'inject-blocks', label: 'Inject blocks to Workspace', connectedTo: 'append-block', position: 'down', level: 14, style: { background: lebelColors.injectBlock, color:"white" }},
 
 	{ id: 'standalone-blocks', label: 'Standalone blocks', connectedTo: 'translation-unit-children', position: 'down', level: 6, style: { background: lebelColors.serializeNode } },
 	{ id: 'includes-blocks', label: 'Include blocks', connectedTo: 'standalone-blocks', position: 'down', level: 7, style: { background: lebelColors.finalNode } },

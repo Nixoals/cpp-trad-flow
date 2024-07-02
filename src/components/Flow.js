@@ -59,7 +59,7 @@ const initialNodes = [];
 initialNodes.push({
 	id: 'start',
 	data: { label: 'Code' },
-	style: { background: 'lightblue', fontSize: 20, fontWeight: 'bold' },
+	style: { background: 'lightblue', fontSize: 20, fontWeight: 'bold', color:"red" },
 	position: { x: startX, y: startY },
 });
 
@@ -170,6 +170,10 @@ function Flow() {
 					style={{ zIndex: 300, background: 'rgba(255,255,255,0.9) ' }}
 				>
 					<div style={{ display: 'flex', gap: '5px' }}>
+						<span style={{ backgroundColor: '#5D6D7E', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
+						<div>Interface link</div>
+					</div>
+					<div style={{ display: 'flex', gap: '5px' }}>
 						<span style={{ backgroundColor: 'lightblue', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
 						<div>start</div>
 					</div>
@@ -193,9 +197,10 @@ function Flow() {
 						<span style={{ backgroundColor: '#AF7AC5', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
 						<div>Block Creation</div>
 					</div>
+					
 					<div style={{ display: 'flex', gap: '5px' }}>
-						<span style={{ backgroundColor: 'orange', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
-						<div>Interface link</div>
+						<span style={{ backgroundColor: '#D35400', width: '50px', height: '20px', border: 'solid 1px gray' }}></span>
+						<div>Output</div>
 					</div>
 				</div>
 				<div className="flow-title-bg"></div>
